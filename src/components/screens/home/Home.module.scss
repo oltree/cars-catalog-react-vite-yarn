@@ -1,0 +1,21 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .header {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+  }
+
+  .cars {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
