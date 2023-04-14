@@ -9,7 +9,6 @@ import styles from './Home.module.scss';
 
 const Home = () => {
   const [cars, setCars] = useState([]);
-  console.log(cars);
 
   useEffect(() => {
     const fetchData = async () => {
