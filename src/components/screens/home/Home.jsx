@@ -3,15 +3,17 @@ import { useEffect, useState } from 'react';
 import CarForm from './car-form/CarForm';
 import Car from './car/Car';
 
+import { CarService } from '../../../services/CarService';
+
 import styles from './Home.module.scss';
 
 const Home = () => {
   const [cars, setCars] = useState([]);
+  console.log(cars);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/cars');
-      const data = await response.json();
+      const data = await CarService.getAllCars();
       setCars(data);
     };
     fetchData();
