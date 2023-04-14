@@ -6,4 +6,10 @@ export const CarService = {
 
     return response.data;
   },
+
+  async getCarById(id) {
+    const response = await axios.get(`http://localhost:3000/cars/${id}`);
+
+    return response.data;
+  },
 };

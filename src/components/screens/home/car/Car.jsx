@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Car.module.scss';
 
 const Car = ({ car }) => {
@@ -10,7 +11,8 @@ const Car = ({ car }) => {
       <div className={styles.info}>
         <h2>{car.name}</h2>
         <p>{car.price}</p>
-        <button>Read more</button>
+
+        <Link to={`/car/${car.id}`}>Read more</Link>
       </div>
     </div>
   );
