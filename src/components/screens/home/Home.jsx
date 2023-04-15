@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import CarForm from './car-form/CarForm';
 import Car from './car/Car';
+import User from './user/User';
 
 import { CarService } from '../../../services/CarService';
 
@@ -21,6 +22,7 @@ const Home = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.header}>Cars catalog</h1>
+      <User />
       <CarForm setCars={setCars} />
       <div className={styles.cars}>
         {cars.length ? (

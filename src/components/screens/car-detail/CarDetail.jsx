@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import Car from '../home/car/Car';
@@ -29,4 +29,4 @@ const CarDetail = () => {
   );
 };
 
-export default CarDetail;
+export default memo(CarDetail);

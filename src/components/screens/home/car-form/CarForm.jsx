@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState, memo } from 'react';
 
 import styles from './CarForm.module.scss';
 
@@ -7,37 +7,44 @@ const initialData = { name: '', price: '', image: '' };
 const CarForm = ({ setCars }) => {
   const [data, setData] = useState(initialData);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setCars((prev) => [...prev, { id: prev.length + 1, ...data }]);
-    setData(initialData);
-  };
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      setCars((prev) => [...prev, { id: prev.length + 1, ...data }]);
+      setData(initialData);
+    },
+    [data, setCars, initialData]
+  );
+
+  const handleChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setData((prev) => ({ ...prev, [name]: value }));
+    },
+    [setData]
+  );
 
   return (
     <form
-      onSubmit={(e) => handleClick(e)}
+      onSubmit={(e) => handleSubmit(e)}
       className={styles.form}
     >
       <input
         type="text"
         value={data.name}
-        onChange={(e) => setData((prev) => ({ ...prev, name: e.target.value }))}
+        onChange={handleChange}
         placeholder="Name"
       />
       <input
         type="text"
         value={data.price}
-        onChange={(e) =>
-          setData((prev) => ({ ...prev, price: e.target.value }))
-        }
+        onChange={handleChange}
         placeholder="Price"
       />
       <input
         type="text"
         value={data.image}
-        onChange={(e) =>
-          setData((prev) => ({ ...prev, image: e.target.value }))
-        }
+        onChange={handleChange}
         placeholder="Image"
       />
 
@@ -46,4 +53,4 @@ const CarForm = ({ setCars }) => {
   );
 };
 
-export default CarForm;
+export default memo(CarForm);
