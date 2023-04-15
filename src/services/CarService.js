@@ -1,19 +1,32 @@
 import axios from 'axios';
 
+const baseURL = 'http://localhost:3000/cars';
+
 export const CarService = {
   async getAllCars() {
-    const response = await axios.get('http://localhost:3000/cars');
-
-    return response.data;
+    try {
+      const { data } = await axios.get(baseURL);
+      return data;
+    } catch (e) {
+      console.error(e);
+    }
   },
 
   async getCarById(id) {
-    const response = await axios.get(`http://localhost:3000/cars/${id}`);
-
-    return response.data;
+    try {
+      const { data } = await axios.get(`${baseURL}/${id}`);
+      return data;
+    } catch (e) {
+      console.error(e);
+    }
   },
 
-  async addCar(data) {
-    return await axios.post(`http://localhost:3000/cars`, data);
+  async addCar(car) {
+    try {
+      const { data } = await axios.post(baseURL, car);
+      return data;
+    } catch (e) {
+      console.error(e);
+    }
   },
 };

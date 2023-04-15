@@ -55,22 +55,40 @@
       "price": "$ 58.000"
     },
     {
-      "name": "aaaa",
-      "price": "aaaaa",
-      "image": "aaaaa",
+      "name": "dasdas",
+      "price": "sadsdasd",
+      "image": "",
       "id": 10
     },
     {
-      "name": "dasdasd",
-      "price": "sdasdas",
+      "name": "фывфы",
+      "price": "фвывфы",
       "image": "",
       "id": 11
     },
     {
-      "name": "dasdasd",
-      "price": "sadasdas",
+      "name": "dasdas",
+      "price": "dasdas",
       "image": "",
       "id": 12
+    },
+    {
+      "name": "asdasdas",
+      "price": "sadasdas",
+      "image": "",
+      "id": 13
+    },
+    {
+      "name": "dasdasd",
+      "price": "dasdas",
+      "image": "",
+      "id": 14
+    },
+    {
+      "name": "ывфывф",
+      "price": "ывфывф",
+      "image": "",
+      "id": 15
     }
   ]
 }

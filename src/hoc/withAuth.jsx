@@ -1,18 +1,18 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../providers/AuthProvider';
+import { useAuth } from '../hooks/useAuth';
+
+const ERROR_MESSAGE = 'You are not authorized to view this page!';
 
 export const withAuth = (Component) => (props) => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
-  if (!user)
-    return (
-      <>
-        <Link to="/">Back</Link>
-        <p> You are not autorized to view this page</p>
-      </>
-    );
-
-  return <Component {...props} />;
+  return user ? (
+    <Component {...props} />
+  ) : (
+    <>
+      <Link to="/">Back</Link>
+      <p>{ERROR_MESSAGE}</p>
+    </>
+  );
 };

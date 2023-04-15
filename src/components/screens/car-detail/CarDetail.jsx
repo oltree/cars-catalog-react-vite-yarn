@@ -1,7 +1,8 @@
-import { useState, useEffect, memo } from 'react';
+import { memo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Link, useParams } from 'react-router-dom';
 
-import Car from '../home/car/Car';
+import Car from '../../ui/car/Car';
 
 import { CarService } from '../../../services/CarService';
 import { withAuth } from '../../../hoc/withAuth';
@@ -10,24 +11,14 @@ import styles from './CarDetail.module.scss';
 
 const CarDetail = () => {
   const { id } = useParams();
-  const [car, setCar] = useState({});
-
-  useEffect(() => {
-    if (!id) return;
-
-    const fetchData = async () => {
-      const data = await CarService.getCarById(id);
-      setCar(data);
-    };
-    fetchData();
-  }, [id]);
+  const { data } = useQuery(['car'], () => CarService.getCarById(id));
 
   return (
     <div className={styles.car}>
       <Link to="/">Back</Link>
-      <Car car={car} />
+      <Car car={data} />
     </div>
   );
 };
 
-export default withAuth(CarDetail);
+export default withAuth(memo(CarDetail));

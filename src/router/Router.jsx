@@ -4,25 +4,33 @@ import Home from '../components/screens/home/Home';
 import NotFound from '../components/screens/notFound/NotFound';
 import CarDetail from '../components/screens/car-detail/CarDetail';
 
-const Router = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
+const routes = [
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/car/:id',
+    element: <CarDetail />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
+  },
+];
+
+const Router = () => (
+  <BrowserRouter>
+    <Routes>
+      {routes.map(({ path, element }) => (
         <Route
-          element={<Home />}
-          path="/"
+          key={path}
+          path={path}
+          element={element}
         />
-        <Route
-          element={<CarDetail />}
-          path="/car/:id"
-        />
-        <Route
-          element={<NotFound />}
-          path="*"
-        />
-      </Routes>
-    </BrowserRouter>
-  );
-};
+      ))}
+    </Routes>
+  </BrowserRouter>
+);
 
 export default Router;

@@ -7,7 +7,7 @@ import Router from './router/Router';
 
 import './assets/styles/global.css';
 
-const queryClient = new QueryClient(); //settings
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -1,31 +1,14 @@
-import { useCallback, memo } from 'react';
+import { memo } from 'react';
 import { useForm } from 'react-hook-form';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+import { useCreateCar } from '../../../hooks/useCreateCar';
 
 import styles from './CarForm.module.scss';
-import { CarService } from '../../../../services/CarService';
 
 const CarForm = () => {
-  const { register, reset, handleSubmit } = useForm({
-    mode: 'onChange',
-  });
+  const { register, reset, handleSubmit } = useForm();
 
-  const queryClient = useQueryClient();
-
-  const { mutate } = useMutation(
-    ['add car'],
-    (data) => CarService.addCar(data),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries('cars');
-        reset();
-      },
-    }
-  );
-
-  const handleCreateCar = useCallback((data) => {
-    mutate(data);
-  }, []);
+  const handleCreateCar = useCreateCar(reset);
 
   return (
     <form
