@@ -1,50 +1,39 @@
-import { useCallback, useState, memo } from 'react';
+import { useCallback, memo } from 'react';
+import { useForm } from 'react-hook-form';
 
 import styles from './CarForm.module.scss';
 
-const initialData = { name: '', price: '', image: '' };
-
 const CarForm = ({ setCars }) => {
-  const [data, setData] = useState(initialData);
+  const { register, reset, handleSubmit } = useForm({
+    mode: 'onChange',
+  });
 
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
+  const handleCreateCar = useCallback(
+    (data) => {
       setCars((prev) => [...prev, { id: prev.length + 1, ...data }]);
-      setData(initialData);
+      reset();
     },
-    [data, setCars, initialData]
-  );
-
-  const handleChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      setData((prev) => ({ ...prev, [name]: value }));
-    },
-    [setData]
+    [setCars]
   );
 
   return (
     <form
-      onSubmit={(e) => handleSubmit(e)}
+      onSubmit={handleSubmit(handleCreateCar)}
       className={styles.form}
     >
       <input
         type="text"
-        value={data.name}
-        onChange={handleChange}
+        {...register('name', { required: true })}
         placeholder="Name"
       />
       <input
         type="text"
-        value={data.price}
-        onChange={handleChange}
+        {...register('price', { required: true })}
         placeholder="Price"
       />
       <input
         type="text"
-        value={data.image}
-        onChange={handleChange}
+        {...register('image')}
         placeholder="Image"
       />
 
