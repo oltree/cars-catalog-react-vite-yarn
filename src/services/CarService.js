@@ -12,4 +12,8 @@ export const CarService = {
 
     return response.data;
   },
+
+  async addCar(data) {
+    return await axios.post(`http://localhost:3000/cars`, data);
+  },
 };
