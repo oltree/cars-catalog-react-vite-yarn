@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Car from '../home/car/Car';
 
 import { CarService } from '../../../services/CarService';
+import { withAuth } from '../../../hoc/withAuth';
 
 import styles from './CarDetail.module.scss';
 
@@ -29,4 +30,4 @@ const CarDetail = () => {
   );
 };
 
-export default memo(CarDetail);
+export default withAuth(CarDetail);
