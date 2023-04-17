@@ -9,7 +9,10 @@ import './assets/styles/global.css';
 
 const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(
+  document.getElementById('root') ?? document.createElement('div')
+);
+root.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>

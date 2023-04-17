@@ -10,13 +10,13 @@ import { withAuth } from '../../../hoc/withAuth';
 import styles from './CarDetail.module.scss';
 
 const CarDetail = () => {
-  const { id } = useParams();
+  const { id = '' } = useParams();
   const { data } = useQuery(['car'], () => CarService.getCarById(id));
 
   return (
     <div className={styles.car}>
       <Link to="/">Back</Link>
-      <Car car={data} />
+      {data && <Car car={data} />}
     </div>
   );
 };

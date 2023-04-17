@@ -53,42 +53,6 @@
       "image": "/bmw-xm.png",
       "name": "bmw xm",
       "price": "$ 58.000"
-    },
-    {
-      "name": "dasdas",
-      "price": "sadsdasd",
-      "image": "",
-      "id": 10
-    },
-    {
-      "name": "фывфы",
-      "price": "фвывфы",
-      "image": "",
-      "id": 11
-    },
-    {
-      "name": "dasdas",
-      "price": "dasdas",
-      "image": "",
-      "id": 12
-    },
-    {
-      "name": "asdasdas",
-      "price": "sadasdas",
-      "image": "",
-      "id": 13
-    },
-    {
-      "name": "dasdasd",
-      "price": "dasdas",
-      "image": "",
-      "id": 14
-    },
-    {
-      "name": "ывфывф",
-      "price": "ывфывф",
-      "image": "",
-      "id": 15
     }
   ]
 }

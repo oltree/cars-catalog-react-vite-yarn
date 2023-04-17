@@ -1,12 +1,13 @@
-import { memo } from 'react';
+import { FC, memo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useCreateCar } from '../../../hooks/useCreateCar';
+import { ICar, ICarData } from '../../../types/car.interface';
 
 import styles from './CarForm.module.scss';
 
-const CarForm = () => {
-  const { register, reset, handleSubmit } = useForm();
+const CarForm: FC = () => {
+  const { register, reset, handleSubmit } = useForm<ICar>();
 
   const handleCreateCar = useCreateCar(reset);
 

@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import User from '../../ui/user/User';
@@ -10,7 +11,7 @@ import styles from './Home.module.scss';
 
 const LOADING = 'Loading...';
 
-const Home = () => {
+const Home: FC = () => {
   const { data, isLoading } = useQuery(['cars'], () => CarService.getAllCars());
 
   if (isLoading) return <p>{LOADING}</p>;

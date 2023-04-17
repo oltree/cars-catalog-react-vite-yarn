@@ -4,7 +4,9 @@ import Home from '../components/screens/home/Home';
 import NotFound from '../components/screens/notFound/NotFound';
 import CarDetail from '../components/screens/car-detail/CarDetail';
 
-const routes = [
+import { IRoute } from '../types/route.interface';
+
+const routes: IRoute[] = [
   {
     path: '/',
     element: <Home />,

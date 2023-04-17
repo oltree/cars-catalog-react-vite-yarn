@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import { FC, memo } from 'react';
 
 import { useAuth } from '../../../hooks/useAuth';
 
 import styles from './User.module.scss';
 
-const User = () => {
+const User: FC = () => {
   const { user, setUser } = useAuth();
 
   const handleClick = () => {

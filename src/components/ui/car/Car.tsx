@@ -1,9 +1,15 @@
-import { memo } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
+
+import { ICar } from '../../../types/car.interface';
 
 import styles from './Car.module.scss';
 
-const Car = ({ car }) => (
+interface CarProps {
+  car: ICar;
+}
+
+const Car: FC<CarProps> = ({ car }) => (
   <div className={styles.car}>
     <div
       style={{ backgroundImage: `url(${car.image})` }}
